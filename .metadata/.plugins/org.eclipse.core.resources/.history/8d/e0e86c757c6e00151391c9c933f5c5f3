@@ -1,0 +1,5 @@
+package com.dermot.bingo.exception;
+
+public class DuplicateInptException extends Exception {
+
+}

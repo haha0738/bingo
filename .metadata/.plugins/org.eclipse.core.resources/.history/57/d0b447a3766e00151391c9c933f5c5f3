@@ -1,0 +1,13 @@
+package com.dermot.bingo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Matrix {
+	private List<Unit> _units = new ArrayList<>();
+	private Player _player;
+	Matrix(Player player)
+	{
+		
+	}
+}

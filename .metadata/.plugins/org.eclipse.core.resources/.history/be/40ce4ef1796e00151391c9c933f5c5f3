@@ -1,0 +1,41 @@
+package com.dermot.bingo;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+public class Game {
+	private List<Integer> _inputs = new ArrayList<>();
+	private List<Player> _players = new ArrayList<>();
+	
+	public void start()
+	{
+		_players.clear();
+		Scanner scanner = new Scanner(System.in);
+		int playerCount;
+		System.out.println("請輸入玩家數量");
+		while(true)
+		{
+			try 
+			{
+				playerCount = scanner.nextInt();
+				if (playerCount < 2) 
+					throw new InputMismatchException();
+				break;
+			} 
+			catch (InputMismatchException e) 
+			{
+				System.out.println("玩家數量必須為正整數並且大於兩人，請重新輸入");
+			}
+		}
+		
+		
+		for (int i = 0; i < playerCount; i++) 
+		{
+			String name = scanner.next();
+			Player player = new Player(this, name);
+			_players.add(player);
+		}
+	}
+}

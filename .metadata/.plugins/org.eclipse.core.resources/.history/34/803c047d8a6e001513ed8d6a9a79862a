@@ -1,0 +1,78 @@
+package com.dermot.bingo;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+/**
+ * 玩家賓果圖
+ * @author texas
+ *
+ */
+public class Matrix {
+	/**
+	 * 賓果圖單元List
+	 */
+	private List<Unit> _units = new ArrayList<>();
+	private Player _player;
+	Matrix(Player player)
+	{
+		_player = player;
+		for(int i = 0; i< 25; i++)
+		{
+			Unit unit = new Unit(this, i + 1);
+			_units.add(unit);
+		}
+		
+		Collections.shuffle(_units);
+	}
+	
+	public Player getPlayer()
+	{
+		return _player;
+	}
+	
+	public List<Unit> getUnits()
+	{
+		return _units;
+	}
+	public int check() 
+	{
+		return check(_player.getGame().getPatterns(), _player.getGame().getInputs());
+	}
+	public int check(List<Integer> patterns, Set<Integer> inputs) 
+	{
+		int value = 0;
+		for(int i = 0; i < _units.size(); i ++)
+		{
+			Unit unit = _units.get(i);
+			if (inputs.contains(unit.getValue())) 
+			{
+				value |= 1 << i;
+			}
+		}
+		int count = 0;
+		for (Integer pattern : patterns) 
+		{
+			if ((value & pattern) == pattern) 
+				count ++;
+		}
+		return count;
+	}
+	
+	public void print()
+	{
+		System.out.println("玩家 " + _player.getName() + (_player.isWin() ? "勝利" : "失敗") + " 連線數 " + _player.getLinks());
+		
+		for(int i = 0; i < _units.size(); i ++)
+		{
+			Unit unit = _units.get(i);
+			if (i % 5 == 0 && i > 0) 
+				System.out.println();
+			boolean isContain = _player.getGame().getInputs().contains(unit.getValue());
+			System.out.print(String.format("%02d", unit.getValue()) + (isContain ? " (O)" : " (X)") + "\t");
+		}
+		System.out.println();
+		System.out.println();
+	}
+}

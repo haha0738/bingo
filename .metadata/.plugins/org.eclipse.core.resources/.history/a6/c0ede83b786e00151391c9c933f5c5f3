@@ -1,0 +1,17 @@
+package com.dermot.bingo;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Game {
+	private List<Integer> _inputs = new ArrayList<>();
+	private List<Player> _players = new ArrayList<>();
+	
+	public void start()
+	{
+		_players.clear();
+		Scanner scanner = new Scanner(System.in);
+		scanner.nextInt();
+	}
+}

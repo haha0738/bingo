@@ -1,0 +1,6 @@
+package com.dermot.bingo;
+
+public class Player {
+	private Matrix _matrix;
+	
+}

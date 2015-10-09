@@ -1,0 +1,5 @@
+package com.dermot.bingo;
+
+public class Matrix {
+	private List<Unit> _units = new ArrayList<>()
+}

@@ -1,0 +1,10 @@
+package com.dermot.bingo;
+
+public class Player {
+	private Matrix _matrix;
+	private Game _game;
+	public void init()
+	{
+		_matrix = new Matrix();
+	}
+}

@@ -1,0 +1,9 @@
+package com.dermot.bingo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Game {
+	private List<Integer> _inputs = new ArrayList<>();
+	private List<Player> _players = new ArrayList<>();
+}

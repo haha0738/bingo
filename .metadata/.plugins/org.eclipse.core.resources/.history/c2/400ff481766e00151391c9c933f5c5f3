@@ -1,0 +1,9 @@
+package com.dermot.bingo;
+
+public class Unit {
+	private int _value;
+	Unit(Matrix matrix)
+	{
+		
+	}
+}
